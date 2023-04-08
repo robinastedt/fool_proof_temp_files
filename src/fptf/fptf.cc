@@ -106,7 +106,6 @@ namespace fptf::detail
     {
         // Need to perform allocating operations before forking as
         // it is not safe to call non-reentrant functions in child.
-        // const std::filesystem::path& daemonPath = getDaemonPath();
         const int ppid = getpid();
         DaemonArgs args{ppid, filepath};
 
