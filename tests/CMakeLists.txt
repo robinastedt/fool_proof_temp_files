@@ -1,9 +1,18 @@
 
-add_executable(test_app
+add_executable(test_app_cpp
     test_app.cc
 )
 
-target_link_libraries(test_app
+target_link_libraries(test_app_cpp
+    PRIVATE
+        fptf
+)
+
+add_executable(test_app_c
+    test_app.c
+)
+
+target_link_libraries(test_app_c
     PRIVATE
         fptf
 )

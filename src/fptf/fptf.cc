@@ -17,9 +17,11 @@ namespace fptf::detail
 } // namespace fptf::detail
 
 // C API
-#include <fptf/fptf.h>
+extern "C" {
+    #include <fptf/fptf.h>
+}
 
-int fptf_register_signal_guard(const char* filepath)
+int fptf_register_temp_file(const char* filepath)
 {
     if (filepath == nullptr)
     {

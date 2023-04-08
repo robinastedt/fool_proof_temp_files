@@ -12,6 +12,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #pragma once
 
-extern "C" {
-    int fptf_register_temp_file(const char* filepath);
-}
+int fptf_register_temp_file(const char* filepath);
