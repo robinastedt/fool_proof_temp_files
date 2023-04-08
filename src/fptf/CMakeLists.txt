@@ -23,3 +23,17 @@ add_library(fptf SHARED
 add_dependencies(fptf
     generate_fptfd_binary
 )
+
+target_sources(fptf PUBLIC FILE_SET HEADERS
+  BASE_DIRS
+    ${CMAKE_SOURCE_DIR}/include
+  FILES
+    ${CMAKE_SOURCE_DIR}/include/fptf/fptf.hh
+    ${CMAKE_SOURCE_DIR}/include/fptf/fptf.h
+)
+
+install(
+    TARGETS fptf
+    LIBRARY DESTINATION lib
+    FILE_SET HEADERS
+)
