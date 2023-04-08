@@ -76,13 +76,13 @@ namespace fptf::detail
         const int memfd = memfd_create("fptfd", MFD_CLOEXEC);
         if (memfd < 0)
         {
-            throw std::runtime_error("fptf::registerSignalGuard failed to create memory file descriptor");
+            throw std::runtime_error("fptf::registerTempFile failed to create memory file descriptor");
         }
 
         // Write fptfd to the memory file descriptor.
         if (write(memfd, fptfd, fptfd_len) != fptfd_len)
         {
-            throw std::runtime_error("fptf::registerSignalGuard failed to write fptfd to memory file descriptor");
+            throw std::runtime_error("fptf::registerTempFile failed to write fptfd to memory file descriptor");
         }
 
         return memfd;
@@ -122,14 +122,14 @@ namespace fptf::detail
 
             // fexecve does not return on success.
             // It is not safe to use std::cerr here, so we use perror instead.
-            perror("fptf::registerSignalGuard failed to launch daemon");
+            perror("fptf::registerTempFile failed to launch daemon");
 
             // Use _exit to avoid calling atexit handlers from parrent process.
             _exit(EXIT_FAILURE);
         }
         else if (pid < 0)
         {
-            throw std::runtime_error("fptf::registerSignalGuard failed to fork");
+            throw std::runtime_error("fptf::registerTempFile failed to fork");
         }
     }
 } // namespace fptf::detail
