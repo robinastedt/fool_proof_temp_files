@@ -76,13 +76,13 @@ namespace fptf::detail
         const int memfd = memfd_create("fptfd", MFD_CLOEXEC);
         if (memfd < 0)
         {
-            return -1;
+            throw std::runtime_error("fptf::registerSignalGuard failed to create memory file descriptor");
         }
 
         // Write fptfd to the memory file descriptor.
         if (write(memfd, fptfd, fptfd_len) != fptfd_len)
         {
-            return -1;
+            throw std::runtime_error("fptf::registerSignalGuard failed to write fptfd to memory file descriptor");
         }
 
         return memfd;
