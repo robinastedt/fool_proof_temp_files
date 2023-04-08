@@ -87,6 +87,7 @@ namespace fptf::daemon
     }
 } // namespace fptf::daemon
 
+
 int main(int argc, const char** argv)
 {
     return fptf::daemon::main(argc, argv);

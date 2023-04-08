@@ -4,7 +4,8 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/include"
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/build/src/fptf" // For generated files
             ],
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
