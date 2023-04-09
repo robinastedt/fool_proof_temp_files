@@ -5,6 +5,8 @@ proper clean up of temporary files, even after an abnormal exit,
 such as segmentation fault. It accomplishes this by spawning a
 daemon that waits for the parent process to terminate.
 
+Currently only Linux is supported.
+
 ## Usage
 
 ### C++
