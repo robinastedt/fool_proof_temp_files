@@ -30,3 +30,27 @@ void createTempFile() {
     }
 }
 ```
+
+### Build and test
+
+```bash
+mkdir build
+cmake -B build/ -DCMAKE_BUILD_TYPE=Debug
+make -C build/ all test
+```
+
+### Installing
+
+To system:
+
+```bash
+cmake -B build/ -DCMAKE_BUILD_TYPE=Release
+sudo make -C build/ install
+```
+
+To local directory:
+
+```bash
+cmake -B build/ -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/path/to/install/dir
+make -C build/ install
+```
